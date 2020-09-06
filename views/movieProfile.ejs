@@ -1,0 +1,16 @@
+<br />
+<div class="container" style="color: #f7fcfe;">
+
+    <img class="img-fluid" src="<%= `https://image.tmdb.org/t/p/w500/${poster_path}`%>" alt="..."
+        style="border:1px solid #f8f9f5; ">
+    <h1><%= title %></h1>
+    <br />
+    <h5><%= overview %></h5>
+    <p>Runtime: <%= runtime %> mins</p>
+    <br />
+    <p>Genres: <% genres.forEach(g => { %>
+        <%= g.name %>,
+        <% }) %>
+    </p>
+    <br />
+</div>

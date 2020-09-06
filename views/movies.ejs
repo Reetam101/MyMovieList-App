@@ -1,0 +1,40 @@
+<div class="row mx-auto">
+    <h1 style="color: #f7fcfe;">Popular Movies</h1>
+</div>
+<br />
+<div class="row">
+    <% results.forEach(m => { %>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 offset-md-1 offset-sm-1">
+        <div class="card" style="width: 18rem; padding: 1rem; background-color: #ebf5f0; ">
+            <img class="img-fluid" src="<%= `https://image.tmdb.org/t/p/w200/${m.poster_path}`%>" class="card-img-top"
+                alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= m.title %></h5>
+                <p class="card-text text-secondary">Votes: <%= m.vote_average %></p>
+                <a href="<%= `/movie/${m.id}` %>" class="btn btn-primary">View More</a>
+            </div>
+        </div>
+        <br />
+    </div>
+    <% }) %>
+</div>
+
+<br />
+
+<div class="container">
+    <div class="row">
+        <% if(parseInt(page) > 1) { %>
+        <div class="col-6 text-center">
+            <a class="btn btn-outline-primary" href="<%= `/${parseInt(page)-1}` %>">Previous</a>
+        </div>
+        <div class="col-6 text-center">
+            <a class="btn btn-outline-primary" href="<%= `/${parseInt(page)+1}` %>">Next</a>
+        </div>
+        <% } else { %>
+        <div class="col-12 text-center">
+            <a class="btn btn-outline-primary" href="<%= `/${parseInt(page)+1}` %>">Next</a>
+        </div>
+        <% }  %>
+    </div>
+</div>
+<br />

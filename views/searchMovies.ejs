@@ -1,0 +1,37 @@
+<form action="#" method="POST">
+    <div class="input-group md-form form-sm form-2 pl-0">
+        <input style="color: white;" class="form-control my-0 py-1 lime-border" type="text" placeholder="Search"
+            aria-label="Search" name="title">
+        <div class="input-group-append">
+            <input type="submit" class="btn btn-primary">
+        </div>
+    </div>
+</form>
+
+<br />
+<br />
+<% if(Array.isArray(results) && results.length) { %>
+<h1 class="text-light">Results:</h1>
+<div class="row">
+    <% results.forEach(m => { %>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 offset-md-1 offset-sm-1">
+        <div class="card" style="width: 18rem; padding: 1rem; background-color: #ebf5f0; ">
+            <img class="img-fluid" src="<%= `https://image.tmdb.org/t/p/w200/${m.poster_path}`%>" class="card-img-top"
+                alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= m.title %></h5>
+                <p class="card-text text-secondary">Votes: <%= m.vote_average %></p>
+                <a href="<%= `/movie/${m.id}` %>" class="btn btn-primary">View More</a>
+            </div>
+        </div>
+        <br />
+    </div>
+    <% }) %>
+</div>
+<% } else { %>
+<h1 class="text-light">Empty!</h1>
+<% } %>
+
+
+<br />
+<br />
