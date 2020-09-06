@@ -4,6 +4,9 @@ const router = express.Router();
 const axios = require('axios');
 //const page = 1;
 
+router.get('/', (req, res) => {
+    res.render('homePage');
+})
 
 router.get('/:page', async (req, res) => {
     try {
